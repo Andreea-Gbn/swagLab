@@ -7,7 +7,7 @@ import org.junit.Assert;
 import pages.InventoryPage;
 import utils.BaseClass;
 
-public class InventoryPageSteps {
+public class InventorySteps {
 
 
     InventoryPage inventoryPage = new InventoryPage();
@@ -25,8 +25,9 @@ public class InventoryPageSteps {
         InventoryPage.itemListIsDisplayed();
     }
 
-    @And("The picture, the product title are displayed")
+    @And("The picture and the product title are displayed")
     public void thePictureTheProductTitleAreDisplayed() {
+        InventoryPage.pictureIsDisplayed();
         InventoryPage.itemNameIsDisplayed();
     }
 
@@ -40,19 +41,22 @@ public class InventoryPageSteps {
     @And("The user sort the product list by Name from Z to A")
     public void theUserSortTheProductListByNameZToA() {
         InventoryPage.clickOnSortFilterButton();
-        BaseClass.waitFor(5);
         InventoryPage.sortItemsByNameZA();
+        BaseClass.waitFor(5);
+        //        wait added here to check the filter was clicked correct
     }
 
     @And("The user sort the product list by Price from high to low")
     public void theUserSortTheProductListByPriceFromHighToLow() {
         InventoryPage.clickOnSortFilterButton();
-        BaseClass.waitFor(5);
         InventoryPage.sortItemsByPriceDescending();
+        BaseClass.waitFor(5);
+//        wait added here to check the filter was clicked correct
     }
 
     @Then("The product list are filtered by {string}")
     public void theProductListAreFilteredBy(String option) {
         InventoryPage.checkSortingFilter(option);
+        InventoryPage.checkThatProductsAreSorted(option);
     }
 }

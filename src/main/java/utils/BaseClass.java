@@ -1,14 +1,12 @@
 package utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import lombok.Getter;
-import lombok.Setter;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BaseClass {
-    @Setter
-    @Getter
+
     public static WebDriver driver;
 
 
@@ -23,8 +21,10 @@ public class BaseClass {
     public static void initializeDriver() {
 
         WebDriverManager.chromedriver().setup();
-//        WebDriver driver = new ChromeDriver();
+
         driver = new ChromeDriver();
+        driver.manage().deleteAllCookies();
+        driver.manage().window().maximize();
         // Navigate to the website
         driver.get("https://www.saucedemo.com/");
     }

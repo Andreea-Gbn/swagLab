@@ -43,12 +43,12 @@ public class LoginSteps {
         Assert.assertTrue(loginPage.passwordFieldIsVisible());
     }
 
-    @Then("User can click on input fields")
+    @And("User can click on input fields")
     public void userCanClickOnInputField() {
         loginPage.userAndPasswordFieldsAreClickable();
     }
 
-    @And("The user can see the login button")
+    @Then("The user can see the login button")
     public void theUserCanSeeTheLoginButton() {
         Assert.assertTrue(loginPage.loginButtonIsVisible());
     }
@@ -62,6 +62,8 @@ public class LoginSteps {
 
     @Then("The user can see error {string}")
     public void theUserCanSeeError(String error) {
+        BaseClass.waitFor(5);
+        //        wait added here to check the error is displayed correct
         Assert.assertTrue(loginPage.loginError(error));
 
     }

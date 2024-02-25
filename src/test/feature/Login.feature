@@ -4,8 +4,8 @@ Feature: Login Functionality
     Given The user access the Swag Lab page
     And The Swag Lab title is displayed
     When The the user can see the username and password fields
-    Then User can click on input fields
-    And The user can see the login button
+    And User can click on input fields
+    Then The user can see the login button
 
   Scenario: User successfully login into Swag Lab
     Given The user access the Swag Lab page
@@ -24,4 +24,5 @@ Feature: Login Functionality
       | standard_user | secret_sauc  | Epic sadface: Username and password do not match any user in this service |
       | standard_us   | secret_sauce | Epic sadface: Username and password do not match any user in this service |
       | standard_user |              | Epic sadface: Password is required                                        |
+      |               | secret_sauce | Epic sadface: Username is required                                        |
       |               | secret_sauce | Epic sadface: Username is required                                        |

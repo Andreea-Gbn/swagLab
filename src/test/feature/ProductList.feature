@@ -6,7 +6,7 @@ Feature: Product List and Sorting
     And The user enter user and password
     When The user click on Login button
     Then The user can see the product list title
-    And The picture, the product title are displayed
+    And The picture and the product title are displayed
     Then The user can see also the price and the "Add to cart" button
 
   Scenario: Check sorting items by Name from Z to A
