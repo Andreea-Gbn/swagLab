@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
 
-    WebDriver driver;
+    static WebDriver driver;
 
     public By usernameInput = new By.ById("user-name");
     private final By passwordInput = new By.ById("password");
-    private final By loginButton = new By.ById("login-button");
+    private static final By loginButton = new By.ById("login-button");
     private final By pageTitle = new By.ByXPath("//div[@class='login_logo']");
     private final By errorLogin = new By.ByXPath("//h3[@data-test='error']");
 
@@ -45,7 +45,7 @@ public class LoginPage {
 
     }
 
-    public void clickLoginButton() {
+    public static void clickLoginButton() {
         driver.findElement(loginButton).click();
     }
 

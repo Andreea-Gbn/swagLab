@@ -21,8 +21,6 @@ public class InventoryPage extends BaseClass {
     private static final By sortFilterButton = new By.ByXPath("//select[@class='product_sort_container']");
     private static final By sortByNameZA = new By.ByXPath("//option[contains(text(),'Name (Z to A)')]");
     private static final By sortByPriceDescending = new By.ByXPath("//option[contains(text(),'Price (high to low)')]");
-    public static List<WebElement> nameElements = driver.findElements(By.className("inventory_item_name"));
-    public static List<WebElement> priceElements = driver.findElements(By.className("inventory_item_price"));
     public static boolean isSorted = true;
 
     public static void inventoryPageIsLoaded() {
@@ -30,22 +28,28 @@ public class InventoryPage extends BaseClass {
     }
 
     public static boolean shoppingCartLogoIsDisplayed() {
-        return driver.findElement(shoppingCartLogo).isDisplayed();
+       return driver.findElement(shoppingCartLogo).isDisplayed();
+
     }
-    public static boolean pictureIsDisplayed() {
-        return driver.findElement(itemPicture).isDisplayed();
+    public static void clickShoppingCartLogo() {
+         driver.findElement(shoppingCartLogo).click();
+    }
+    public static void pictureIsDisplayed() {
+        driver.findElement(itemPicture).isDisplayed();
     }
 
-    public static boolean itemNameIsDisplayed() {
-        return driver.findElement(itemName).isDisplayed();
+    public static void itemNameIsDisplayed() {
+        driver.findElement(itemName).isDisplayed();
     }
 
-    public static void itemListIsDisplayed() {
-        driver.findElement(itemList).isDisplayed();
+    public static boolean itemListIsDisplayed() {
+        return driver.findElement(itemList).isDisplayed();
+
     }
 
-    public static void priceIsDisplayed() {
-        driver.findElement(price).isDisplayed();
+    public static boolean priceIsDisplayed() {
+        return driver.findElement(price).isDisplayed();
+
     }
 
     public static boolean addToCartButtonIsVisible() {
@@ -92,6 +96,7 @@ public class InventoryPage extends BaseClass {
     public static void productsOrderedFromAToZ() {
 
         String previousProductName = "";
+        List<WebElement> nameElements = driver.findElements(By.className("inventory_item_name"));
         for (WebElement productElement : nameElements) {
             String currentProductName = productElement.getText();
             if (previousProductName.compareTo(currentProductName) < 0) {
@@ -112,6 +117,7 @@ public class InventoryPage extends BaseClass {
     public static void productOrderedFromHighToLow() {
 
         double previousPrice = Double.MAX_VALUE; //Initialize with maximum value
+        List<WebElement> priceElements = driver.findElements(By.className("inventory_item_price"));
         for (WebElement priceElement : priceElements) {
             String priceText = priceElement.getText().replace("$", ""); //Price starts with $ sign
             double currentPrice = Double.parseDouble(priceText);
@@ -137,6 +143,8 @@ public class InventoryPage extends BaseClass {
             case "Price (high to low)":
                 productOrderedFromHighToLow();
                 break;
+            default:
+                Assert.fail("filter not found!!!");
 
         }
     }

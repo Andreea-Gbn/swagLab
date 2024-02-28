@@ -10,13 +10,13 @@ Feature: Login Functionality
   Scenario: User successfully login into Swag Lab
     Given The user access the Swag Lab page
     When The user enter user and password
-    And The user click on Login button
+    And The user click on "Login" button
     Then The user can see the Swan Lab Home Page
 
   Scenario Outline: Check sign in with invalid inputs
     Given The user access the Swag Lab page
     When The user enter user "<user>" and password "<password>"
-    And The user click on Login button
+    And The user click on "Login" button
     Then The user can see error "<error>"
 
     Examples:

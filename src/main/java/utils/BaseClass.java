@@ -19,7 +19,7 @@ public class BaseClass {
 
 
     public static void initializeDriver() {
-
+        WebDriverManager.chromedriver().clearDriverCache();
         WebDriverManager.chromedriver().setup();
 
         driver = new ChromeDriver();

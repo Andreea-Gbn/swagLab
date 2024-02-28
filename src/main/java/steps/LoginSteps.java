@@ -27,11 +27,6 @@ public class LoginSteps {
         loginPage.login("standard_user", "secret_sauce");
     }
 
-    @And("The user click on Login button")
-    public void theUserClickOnLoginButton() {
-        loginPage.clickLoginButton();
-    }
-
     @And("The Swag Lab title is displayed")
     public void theSwagLabTitleIsDisplayed() {
         Assert.assertTrue(loginPage.titleIsVisible());
