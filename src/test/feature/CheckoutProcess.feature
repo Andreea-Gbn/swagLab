@@ -48,6 +48,16 @@ Feature: Checkout Process
     Then The user can see the "Your Cart" page
     And The Your Cart page is displayed
 
+  Scenario: Verify if clicking the "Continue" button on the "Checkout: Your Information" page redirects the user to the "Checkout: Overview" page
+    Given The user is on Products page
+    When The user add one product to the Shopping Cart
+    Then The user click on Shopping Cart image
+    When The user click on "Checkout" button
+    Then The user can see the "Checkout: Your Information" page
+    And The user add input for First Name, Last Name and Postal Code
+    And The user click on "Continue" button to submit the form
+    Then The user can see the "Checkout: Overview" page
+
   Scenario: Verify if "Checkout: Overview" page displays the order details
     Given The user is on Products page
     When The user add one product to the Shopping Cart

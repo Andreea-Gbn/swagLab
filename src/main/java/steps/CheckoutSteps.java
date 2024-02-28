@@ -18,8 +18,8 @@ public class CheckoutSteps {
     @And("The user can see specific page fields like firsName input, lastName input and Postal Code")
     public void theUserCanSeeSpecificPageFieldsLikeFirsNameInputLastNameInputAndPostalCode() {
         Assert.assertTrue(firstNameInputIsDisplayed());
-        Assert.assertTrue(lastNameInputInputIsDisplayed());
-        Assert.assertTrue(postalCodeInputInputIsDisplayed());
+        Assert.assertTrue(lastNameInputIsDisplayed());
+        Assert.assertTrue(postalCodeInputIsDisplayed());
     }
 
     @And("The user add input for First Name, Last Name and Postal Code")

@@ -22,7 +22,6 @@ public class CheckoutPage {
     private static final By errorCheckoutPage = new By.ByXPath("//h3[@data-test='error']");
     private static final By cartList = new By.ByClassName("cart_list");
     private static final By summaryInformation = new By.ByClassName("summary_info_label");
-//    private static final By paymentInformation = new By.ByClassName("summary_info_label");
 
     public static boolean checkoutButtonIsDisplayed() {
         return driver.findElement(checkoutButton).isDisplayed();
@@ -36,7 +35,7 @@ public class CheckoutPage {
         return driver.findElement(titlePage).isDisplayed();
     }
 
-    public static Object checkoutTitlePageText() {
+    public static String checkoutTitlePageText() {
         return driver.findElement(titlePage).getText();
 
     }
@@ -48,6 +47,7 @@ public class CheckoutPage {
     public static void clickBckHomeButton() {
         driver.findElement(backHomeButton).click();
     }
+
     public static boolean backHomeButtonIsDisplayed() {
         return driver.findElement(backHomeButton).isDisplayed();
     }
@@ -55,15 +55,16 @@ public class CheckoutPage {
     public static void clickFinishButton() {
         driver.findElement(finishButton).click();
     }
+
     public static boolean firstNameInputIsDisplayed() {
         return driver.findElement(firstNameInput).isDisplayed();
     }
 
-    public static boolean lastNameInputInputIsDisplayed() {
+    public static boolean lastNameInputIsDisplayed() {
         return driver.findElement(lastNameInput).isDisplayed();
     }
 
-    public static boolean postalCodeInputInputIsDisplayed() {
+    public static boolean postalCodeInputIsDisplayed() {
         return driver.findElement(postalCodeInput).isDisplayed();
     }
 
