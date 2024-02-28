@@ -9,6 +9,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.LoginPage;
+import pages.TestDataGlobal;
 import utils.BaseClass;
 
 public class LoginSteps {
@@ -24,7 +25,7 @@ public class LoginSteps {
 
     @When("The user enter user and password")
     public void theUserEnterUserAndPassword() {
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(TestDataGlobal.username, TestDataGlobal.password);
     }
 
     @And("The Swag Lab title is displayed")

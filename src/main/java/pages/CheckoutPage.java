@@ -124,16 +124,16 @@ public class CheckoutPage {
             case "all":
                 break;
             case "First Name":
-                addInputToLastNameField("Pop");
-                addInputToPostalCodeField("747412");
+                addInputToLastNameField(TestDataGlobal.lastName);
+                addInputToPostalCodeField(TestDataGlobal.postalCode);
                 break;
             case "Last Name":
-                addInputToFirstNameField("Ana");
-                addInputToPostalCodeField("747412");
+                addInputToFirstNameField(TestDataGlobal.lastName);
+                addInputToPostalCodeField(TestDataGlobal.postalCode);
                 break;
             case "Zip/Postal Code":
-                addInputToFirstNameField("Ana");
-                addInputToLastNameField("Pop");
+                addInputToFirstNameField(TestDataGlobal.firstName);
+                addInputToLastNameField(TestDataGlobal.lastName);
                 break;
             default:
                 Assert.fail("field not found!!!");
